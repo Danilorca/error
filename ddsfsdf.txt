@@ -1,0 +1,35 @@
+      <Formik
+      initialValues={
+        {
+          firstName: firstName,
+          lastName:lastName,
+          email: email,
+          rut: rut,
+          password: password,
+          confirmPassword:confirmPassword
+        }
+        
+        validationSchema={Yup.object().shape({
+          firstName: Yup.string()
+          .min(4, "El nombre es muy corto")
+          .max(15,"El nombre es muy largo")
+          .required("Por favor ingresa un nombre"),
+          lastName: Yup.string()
+          .min(4, "El apellido es muy corto")
+          .max(15,"El apellido es muy largo")
+          .required("Por favor ingresa un apellido"),
+          email: Yup.string()
+          .email("El formato del correo no es válido")
+          .required("El correo es obligatorio"),
+          rut:Yup.string()
+          //.matches("", "El formato del rut no es válido")
+          .required("El rut es obligatorio")
+          password:Yup.string()
+          .required("La contraseña es obligatoria")
+          //.equals([])
+
+        })}
+      }
+      >
+
+      </Formik>
